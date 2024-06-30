@@ -1,67 +1,90 @@
-Simple Shopping App
-This is my assignment submission for the HNG stage one task. I was tasked to create a simple shopping app that has two items on the dashboard and displays items statically. 
+# Simple Shopping App
 
-Features
-Display a static list of products.
-Add and remove items from the checkout list.
-Navigate to an order successful screen from the checkout screen.
-Built using only native Flutter components (no third-party dependencies).
-Screenshots
+This is my assignment submission for the HNG stage one task. I was tasked to create a simple shopping app that has two items on the dashboard and displays items statically.
 
-Products screen displaying a list of products.
+## Features
 
+- Display a static list of products.
+- Add and remove items from the checkout list.
+- Navigate to an order successful screen from the checkout screen.
+- Built using only native Flutter components (no third-party dependencies).
 
-Checkout screen displaying items added for checkout.
+## Screenshots
 
+### Products screen displaying a list of products.
 
-Order successful screen confirming the order.
+![Products Screen](screenshots/products-screen.png)
 
-Setup Instructions
-Prerequisites
-Flutter installed on your machine. Follow the instructions here to install Flutter.
-Steps
-Clone the Repository
+### Checkout screen displaying items added for checkout.
 
-sh
-Copy code
-git clone https://github.com/immadominion/simple_shopping_app.git
-cd simple_shopping_app
-Get Flutter Packages
+![Checkout Screen](screenshots/checkout-screen.png)
 
-sh
-Copy code
-flutter pub get
-Run the App
+### Order successful screen confirming the order.
 
-Connect your mobile device or start an emulator, then run:
+![Order Successful Screen](screenshots/order-success-screen.png)
 
-sh
-Copy code
-flutter run
-Appetize.io Demo
-You can view a live demo of the app on Appetize.io here.
+## Setup Instructions
 
-Project Structure
-plaintext
-Copy code
-lib/
- |- main.dart
- |- models/
- |   |- product.dart
- |- screens/
- |   |- products_screen.dart
- |   |- checkout_screen.dart
- |   |- order_successful_screen.dart
- |- widgets/
-     |- product_item.dart
-Code Overview
-Models
-Product Model (lib/models/product.dart): Defines the structure of a product with id, title, and price.
-Screens
-Products Screen (lib/screens/products_screen.dart): Displays a list of products.
-Checkout Screen (lib/screens/checkout_screen.dart): Displays the products added for checkout and a button to navigate to the order successful screen.
-Order Successful Screen (lib/screens/order_successful_screen.dart): Displays a message confirming the order.
-Widgets
-Product Item Widget (lib/widgets/product_item.dart): Represents a single product item in the list.
-Main File
-Main File (lib/main.dart): Contains the main entry point of the app, sets up navigation, and manages the state of the checkout list.# HNG-SHOP
+### Prerequisites
+
+- Flutter installed on your machine. Follow the instructions [here](https://flutter.dev/docs/get-started/install) to install Flutter.
+
+### Steps
+
+1. **Clone the Repository**
+
+   ```sh
+   git clone https://github.com/immadominion/simple_shopping_app.git
+   cd simple_shopping_app
+
+   ```
+
+2. **Get Flutter Packages**
+
+   ```sh
+   flutter pub get
+
+   ```
+
+3. **Run the App**
+   ```sh
+   flutter run
+   ```
+
+## Appetize Demo
+
+- You can view a live demo of the app on Appetize.io ([here](https://appetize.io/app/6fjrlfbjvtm2gv5nqkmundefwy?device=pixel7&osVersion=13.0))
+
+## Project Structure
+
+    lib/
+
+|- main.dart
+|- models/
+| |- product.dart
+|- screens/
+| |- products_screen.dart
+| |- checkout_screen.dart
+| |- order_successful_screen.dart
+|- widgets/
+|- product_item.dart
+
+## Code Overview
+
+### Models
+
+- Product Model (lib/models/product.dart): Defines the structure of a product with id, title, and price.
+
+### Screens
+
+- Products Screen (lib/screens/products_screen.dart): Displays a list of products.
+- Checkout Screen (lib/screens/checkout_screen.dart): Displays the products added for checkout and a button to navigate to the order successful screen.
+- Order Successful Screen (lib/screens/order_successful_screen.dart): Displays a message confirming the order.
+
+### Widgets
+
+- Product Item Widget (lib/widgets/product_item.dart): Represents a single product item in the list.
+
+### Main file
+
+- Main File (lib/main.dart): Contains the main entry point of the app, sets up navigation, and manages the state of the checkout list.
