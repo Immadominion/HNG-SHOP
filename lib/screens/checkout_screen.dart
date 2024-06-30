@@ -42,7 +42,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       _isShowingLoadingDialog = true;
                     });
 
-                    // Show loading indicator while waiting
                     showDialog(
                       context: context,
                       barrierDismissible: false,
@@ -52,6 +51,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     );
 
                     await Future.delayed(const Duration(seconds: 2));
+
+                    widget.onRemoveProduct(widget.checkoutProducts[index]);
 
                     Navigator.pop(context);
                     setState(() {
