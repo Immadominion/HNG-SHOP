@@ -58,16 +58,15 @@ This is my assignment submission for the HNG stage one task. I was tasked to cre
 ## Project Structure
 
     lib/
-
-|- main.dart
-|- models/
-| |- product.dart
-|- screens/
-| |- products_screen.dart
-| |- checkout_screen.dart
-| |- order_successful_screen.dart
-|- widgets/
-|- product_item.dart
+    |- main.dart
+    |- models/
+    |   |- product.dart
+    |- screens/
+    |   |- products_screen.dart
+    |   |- checkout_screen.dart
+    |   |- order_successful_screen.dart
+    |- widgets/
+    |- product_item.dart
 
 ## Code Overview
 
