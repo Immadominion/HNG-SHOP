@@ -24,51 +24,62 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
-          child: ListView.builder(
-            itemCount: widget.checkoutProducts.length,
-            itemBuilder: (ctx, index) => ListTile(
-              title: Text(widget.checkoutProducts[index].title),
-              leading: IconButton(
-                icon: const Icon(Icons.remove),
-                onPressed: () =>
-                    widget.onRemoveProduct(widget.checkoutProducts[index]),
-              ),
-              trailing: IconButton(
-                icon: const Icon(Icons.payment_rounded),
-                onPressed: () async {
-                  if (!_isShowingLoadingDialog) {
-                    setState(() {
-                      _isShowingLoadingDialog = true;
-                    });
+        widget.checkoutProducts.isEmpty
+            ? const Expanded(
+                child: Center(
+                    child: Text(
+                  "Nothing here :(",
+                  textAlign: TextAlign.center,
+                )),
+              )
+            : Expanded(
+                child: ListView.builder(
+                  itemCount: widget.checkoutProducts.length,
+                  itemBuilder: (ctx, index) => ListTile(
+                    title: Text(widget.checkoutProducts[index].title),
+                    leading: IconButton(
+                      icon: const Icon(Icons.remove),
+                      onPressed: () => widget
+                          .onRemoveProduct(widget.checkoutProducts[index]),
+                    ),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.payment_rounded),
+                      onPressed: () async {
+                        if (!_isShowingLoadingDialog) {
+                          setState(() {
+                            _isShowingLoadingDialog = true;
+                          });
 
-                    showDialog(
-                      context: context,
-                      barrierDismissible: false,
-                      builder: (BuildContext context) {
-                        return const Center(child: CircularProgressIndicator());
+                          showDialog(
+                            context: context,
+                            barrierDismissible: false,
+                            builder: (BuildContext context) {
+                              return const Center(
+                                  child: CircularProgressIndicator());
+                            },
+                          );
+
+                          await Future.delayed(const Duration(seconds: 2));
+
+                          widget
+                              .onRemoveProduct(widget.checkoutProducts[index]);
+
+                          Navigator.pop(context);
+                          setState(() {
+                            _isShowingLoadingDialog = false;
+                          });
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const OrderSuccessfulScreen(),
+                            ),
+                          );
+                        }
                       },
-                    );
-
-                    await Future.delayed(const Duration(seconds: 2));
-
-                    widget.onRemoveProduct(widget.checkoutProducts[index]);
-
-                    Navigator.pop(context);
-                    setState(() {
-                      _isShowingLoadingDialog = false;
-                    });
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const OrderSuccessfulScreen(),
-                      ),
-                    );
-                  }
-                },
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-        ),
       ],
     );
   }
