@@ -17,13 +17,11 @@ class ProductItem extends StatelessWidget {
     return ListTile(
       title: Text(product.title),
       subtitle: Text('\$${product.price.toStringAsFixed(2)}'),
-      trailing: GestureDetector(
-          onTap: () {
-            onAddProduct(product);
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          },
-          child: const Icon(Icons.shopping_cart)),
-      // onTap: () => onAddProduct(product),
+      trailing: const Icon(Icons.shopping_cart),
+      onTap: () {
+        onAddProduct(product);
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      },
     );
   }
 }
